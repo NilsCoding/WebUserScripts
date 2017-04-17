@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Warn on Unicode domains
 // @namespace    https://github.com/nilscoding/WebUserScripts
-// @version      1.0
+// @version      1.0.1
 // @description  Simple script to warn the user if a domain with unicode chars is opened
 // @author       NilsCoding
 // @include      *
@@ -11,7 +11,7 @@
 (function() {
     'use strict';
 
-    var currentHost = location.host;
+    var currentHost = (location.hostname) ? location.hostname : location.host;
     var isHttps = (location.protocol.indexOf('https') > -1);
     if ((currentHost.indexOf('.xn--') > -1) || (encodeURIComponent(currentHost).indexOf('%') > -1)) {
         var warnDiff = document.createElement('div');
